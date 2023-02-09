@@ -3,13 +3,13 @@
   <p>{{content}}</p>
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
   <!--display comment -->
-   {{!-- {{#if comments.length}}
+   {{#if comments.length}}
   <div class="col-md-6 blog-list">
     <h3>Comments:</h3>
 
     {{#each comments as |comment|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
+    <div class="row mb-2" data-id="{{comment.comm_content}}">
+      <div class="col-md-8" data-id="{{comment.blog_id}}>
         <h4><a href="/comment/{{comment.blog_id}}">{{comment.comm_content}}</a></h4>
       </div>
     </div>
@@ -18,7 +18,7 @@
   {{/if}}
 </div>
 
-<script src="./js/comment.js"></script> --}}
+<script src="./js/comment.js"></script>
 
 
 {{#if logged_in}}
