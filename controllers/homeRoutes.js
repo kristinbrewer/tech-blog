@@ -1,7 +1,8 @@
 const router = require('express').Router();
-const { Blog, User } = require('../models');
+const { Blog, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
-
+//////
+/////
 router.get('/', async (req, res) => {
   try {
     // Get all blogs and JOIN with user data
@@ -29,7 +30,10 @@ router.get('/', async (req, res) => {
 
 router.get('/blog/:id', async (req, res) => {
   try {
-    const blogData = await Blog.findByPk(req.params.id, {
+    const blogData = await Blog.findOne({
+      where: {
+        id: req.params.id
+      },
       include: [
         {
           model: User,
